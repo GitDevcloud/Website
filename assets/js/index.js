@@ -5,8 +5,10 @@ const navDropdown = document.querySelector(".navbar-collapse");
 const navToggler = document.querySelector(".navbar-toggler");
 const menuIcon = document.querySelector(".navbar-icon");
 const switcher = document.querySelector(".word-switcher");
+const cardButtons = document.querySelectorAll(".card-button");
+const cardChildren = document.querySelectorAll(".card-child");
 
-console.log(menuIcon);
+console.log(cardButtons, cardChildren);
 
 let typewriter = new Typewriter(switcher, {
     loop: false,
@@ -76,6 +78,16 @@ window.addEventListener("scroll", () => {
             });
         } else if (window.scrollY > sectionTop + sectionHeight) {
             section.classList.remove("active");
+        }
+    });
+});
+
+cardButtons.forEach((cardButton, buttonIndex) => {
+    cardButton.addEventListener("click", () => {
+        if (!cardChildren[buttonIndex].classList.contains("active")) {
+            cardChildren[buttonIndex].classList.add("active");
+        } else {
+            cardChildren[buttonIndex].classList.remove("active");
         }
     });
 });

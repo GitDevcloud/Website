@@ -1,6 +1,6 @@
 /* LOCAL ROOT VARIABLES */
 :root {
-    --main-primary: rgb(241, 142, 158);
+    --main-primary: #e76f83;
     --main-primary-darker: #e76f83;
     --main-secondary: red;
     --main-text-color: rgb(63, 63, 63);
@@ -148,6 +148,7 @@ footer {
 }
 .navbar-iconTwo {
     width: 20px;
+    /* float: left; */
 }
 .navbar-toggler:hover .navbar-iconTwo {
     width: 40px;
@@ -170,6 +171,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 120;
     -webkit-transition: top 0.3s ease-in-out;
     -moz-transition: top 0.3s ease-in-out;
     -o-transition: top 0.3s ease-in-out;
@@ -279,10 +281,68 @@ main h1 {
 .word-switcher {
     text-transform: uppercase;
 }
+
+/* LANDING ALTERNATIVE START */
+svg.svg-hero .text {
+    display: none;
+}
+svg.svg-hero.start .text {
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+}
+svg.svg-hero.start .text-stroke {
+    fill: none;
+    stroke: #464145;
+    stroke-width: 15px;
+    stroke-dashoffset: -900;
+    stroke-dasharray: 900;
+    stroke-linecap: butt;
+    stroke-linejoin: round;
+    -webkit-animation: dash 2.5s ease-in-out forwards;
+    animation: dash 2.5s ease-in-out forwards;
+}
+svg.svg-hero.start .text-stroke:nth-child(2) {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+svg.svg-hero.start .text-stroke:nth-child(3) {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+svg.svg-hero.start .text-stroke-2 {
+    stroke: var(--main-primary-darker);
+    -webkit-animation-delay: 1.2s;
+    animation-delay: 1.2s;
+}
+svg.svg-hero.start .text-stroke:nth-child(5) {
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+svg.svg-hero.start .text-stroke:nth-child(6) {
+    -webkit-animation-delay: 1.8s;
+    animation-delay: 1.8s;
+}
+
+@-webkit-keyframes dash {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dash {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* LANDING ALTERNATIVE END */
+
 /* LANDING END*/
 
 /* SERVICES START */
-
 .card-child {
     background: var(--main-bg-primary);
     box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
@@ -443,16 +503,6 @@ main h1 {
     width: 100px;
     height: 100px;
 }
-@media (max-width: 550px) {
-    .about-content {
-        margin-bottom: 30px;
-    }
-    .about-item {
-        gap: 20px;
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
 /* ABOUT END */
 
@@ -554,11 +604,7 @@ main h1 {
     right: 0px;
     z-index: 1;
 }
-@media (max-width: 800px) {
-    .carousel {
-        flex-direction: column !important;
-    }
-}
+
 /* TESTIMONIALS END */
 
 /* FOOTER START */
@@ -611,3 +657,22 @@ footer .socials > * {
     border-radius: 50%;
 }
 /* FOOTER END */
+
+/* BREAKPOINTS START */
+@media (max-width: 550px) {
+    .about-content {
+        margin-bottom: 30px;
+    }
+    .about-item {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .carousel {
+        flex-direction: column !important;
+    }
+}
+/* BREAKPOINTS END */

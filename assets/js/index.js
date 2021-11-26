@@ -10,6 +10,7 @@ const cardChildren = document.querySelectorAll(".card-child");
 
 console.log(cardButtons, cardChildren);
 
+// typewriter animation for main hero START
 let typewriter = new Typewriter(switcher, {
     loop: false,
     cursor: "",
@@ -28,6 +29,12 @@ typewriter
     .typeString("MYNT")
     .pauseFor(1500)
     .start();
+//typewriter END
+
+//hero animations start after document is ready
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".svg-hero").classList.add("start");
+});
 
 /* navigation bar onScroll animation */
 let prevScrollpos = window.pageYOffset;

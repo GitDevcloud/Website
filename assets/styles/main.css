@@ -134,21 +134,22 @@ footer {
 /* Menu button animation */
 .navbar-icon {
     position: relative;
-    transition: all 0.3s ease-in;
+    /* transition: all 0.3s ease-in; */
 }
 .navbar-iconOne,
 .navbar-iconTwo {
-    transition: all 0.2s ease-in;
+    margin: 0 0;
+    transition: all 0.3s linear;
     display: block;
     width: 40px;
     height: 2px;
     background: var(--main-bg-secondary);
     transform: rotate(0deg);
-    margin: 10px 0;
+    margin: 5px 0;
 }
 .navbar-iconTwo {
     width: 20px;
-    /* float: left; */
+    float: right;
 }
 .navbar-toggler:hover .navbar-iconTwo {
     width: 40px;
@@ -283,6 +284,9 @@ main h1 {
 }
 
 /* LANDING ALTERNATIVE START */
+svg.svg-hero {
+    user-select: none;
+}
 svg.svg-hero .text {
     display: none;
 }
@@ -352,7 +356,7 @@ svg.svg-hero.start .text-stroke:nth-child(6) {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 40px;
-    min-height: 400px;
+    min-height: 350px;
     line-height: 180%;
     border-radius: var(--main-border-radius);
     -webkit-transition: all 0.3s ease-in-out;
@@ -375,7 +379,7 @@ svg.svg-hero.start .text-stroke:nth-child(6) {
 }
 .card-child.active {
     transition: all 0.3 ease-in-out;
-    min-height: 600px;
+    min-height: 500px;
 }
 .card-child.active .text-block {
     display: block;

@@ -1,3 +1,4 @@
+const header = document.querySelector("header");
 const menuItems = document.querySelectorAll(".nav-item a");
 const sections = document.querySelectorAll(".page-section");
 const navbar = document.querySelector("header");
@@ -7,8 +8,8 @@ const menuIcon = document.querySelector(".navbar-icon");
 const switcher = document.querySelector(".word-switcher");
 const cardButtons = document.querySelectorAll(".card-button");
 const cardChildren = document.querySelectorAll(".card-child");
-
-console.log(cardButtons, cardChildren);
+const form = document.querySelector("form");
+const formButton = document.querySelector(".mail-button");
 
 // typewriter animation for main hero START
 let typewriter = new Typewriter(switcher, {
@@ -31,15 +32,11 @@ typewriter
     .start();
 //typewriter END
 
-//hero animations start after document is ready
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".svg-hero").classList.add("start");
-});
-
 /* navigation bar onScroll animation */
 let prevScrollpos = window.pageYOffset;
 window.onscroll = () => {
     let currentScrollPos = window.pageYOffset;
+    if (navDropdown.classList.contains("show")) return;
     if (prevScrollpos < currentScrollPos) {
         navbar.classList.add("nav-vanish");
     } else {
@@ -63,8 +60,10 @@ window.addEventListener("click", (e) => {
     let expanded = navToggler.getAttribute("aria-expanded");
     if (expanded == "true") {
         navToggler.classList.add("active");
+        header.classList.add("active");
     } else {
         navToggler.classList.remove("active");
+        header.classList.remove("active");
     }
 });
 
@@ -97,4 +96,14 @@ cardButtons.forEach((cardButton, buttonIndex) => {
             cardChildren[buttonIndex].classList.remove("active");
         }
     });
+});
+
+formButton.addEventListener("click", () => {
+    const submissionMessage = document.createElement("div");
+    submissionMessage.className =
+        "message-parent col-lg-6 col-md-10 col-sm-12 p-md-4 p-3";
+    submissionMessage.innerHTML =
+        "<p class='form-message' data-aos='fade-left'>Thank you for your message!</p>";
+
+    form.parentNode.replaceChild(submissionMessage, form);
 });
